@@ -6,5 +6,6 @@ yarn add @react-navigation/stack
 yarn add react-native-gesture-handler
 yarn add @react-native-masked-view/masked-view
 yarn add react-native-vector-icons
-yarn add @types/react-native-vector-icons	
+yarn add @types/react-native-vector-icons //https://github.com/oblador/react-native-vector-icons
+yarn add axios
 }
