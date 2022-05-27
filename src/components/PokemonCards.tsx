@@ -17,7 +17,7 @@ export const PokemonCards = ({ pokemon }: Porps) => {
 
     const [bgColor, setBgColor] = useState('grey');
     const isMounted = useRef(true);
-    const {navigate}:any = useNavigation();
+    const { navigate }: any = useNavigation();
 
     useEffect(() => {
         ImageColors.getColors(pokemon.picture, { fallback: 'grey' })
@@ -42,38 +42,37 @@ export const PokemonCards = ({ pokemon }: Porps) => {
 
     }, [])
 
-
     return (
         <TouchableOpacity
             activeOpacity={0.8}
             onPress={() => navigate('Pokemon', { simplePokemon: pokemon, color: bgColor })}
-                >
-                <View
-                    style={{
-                        ...styles.cardContainer,
-                        width: windowWidth * 0.4,
-                        backgroundColor: bgColor
-                    }}
-                >
-                    {/* Nombre del pokemon y ID */}
-                    <View>
-                        <Text style={styles.name}>
-                            {pokemon.name}
-                            {'\n#' + pokemon.id}
-                        </Text>
-                    </View>
-                    <View style={styles.pokebolaContainer}>
-                        <Image
-                            source={require('../assets/pokebola-blanca.png')}
-                            style={styles.pokebola}
-                        />
-                    </View>
-
-                    <FadeInImage
-                        uri={pokemon.picture}
-                        style={styles.pokemonImage}
+        >
+            <View
+                style={{
+                    ...styles.cardContainer,
+                    width: windowWidth * 0.4,
+                    backgroundColor: bgColor
+                }}
+            >
+                {/* Nombre del pokemon y ID */}
+                <View>
+                    <Text style={styles.name}>
+                        {pokemon.name}
+                        {'\n#' + pokemon.id}
+                    </Text>
+                </View>
+                <View style={styles.pokebolaContainer}>
+                    <Image
+                        source={require('../assets/pokebola-blanca.png')}
+                        style={styles.pokebola}
                     />
                 </View>
+
+                <FadeInImage
+                    uri={pokemon.picture}
+                    style={styles.pokemonImage}
+                />
+            </View>
         </TouchableOpacity >
     )
 }
